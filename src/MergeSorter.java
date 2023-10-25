@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Comparator;
 
 /**
@@ -30,8 +31,24 @@ public class MergeSorter {
    *
    * Preconditions: Each subarray is sorted accorting to comparator.
    */
+
   static <T> void merge(T[] vals, int lo, int mid, int hi, Comparator<? super T> comparator) {
-    // STUB
+    
+    T[] temparr = Arrays.copyOfRange(vals, lo, hi);
+
+    for(int i = 0; i < hi; i++){
+    if(comparator.compare(vals[lo], vals[mid]) > 0){
+      temparr[i]= vals[mid];
+      mid++;
+    }else{
+      temparr[i] = vals[lo];
+      lo++;
+    }
+  }//for
+
+  vals = temparr;
+
   } // merge
+
 
 } // class MergeSorter
